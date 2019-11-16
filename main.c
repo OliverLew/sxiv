@@ -389,12 +389,17 @@ void update_info(void)
 	}
 }
 
-int ptr_third_x(void)
+int ptr_nav_button(void)
 {
 	int x, y;
+    int ptr_side_frac = 10;
 
 	win_cursor_pos(&win, &x, &y);
-	return MAX(0, MIN(2, (x / (win.w * 0.33))));
+	if(x >= win.w * (1 - 1.0 / ptr_side_frac))
+		return 2;
+	if(x <= win.w * 1.0 / ptr_side_frac)
+		return 0;
+	return 1;
 }
 
 void redraw(void)
@@ -427,7 +432,7 @@ void reset_cursor(void)
 		for (i = 0; i < ARRLEN(timeouts); i++) {
 			if (timeouts[i].handler == reset_cursor) {
 				if (timeouts[i].active) {
-					c = ptr_third_x();
+					c = ptr_nav_button();
 					c = MAX(fileidx > 0 ? 0 : 1, c);
 					c = MIN(fileidx + 1 < filecnt ? 2 : 1, c);
 					cursor = imgcursor[c];
