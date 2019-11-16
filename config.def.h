@@ -102,6 +102,7 @@ static const keymap_t keys[] = {
 
 	{ 0,            XK_n,             i_navigate,           +1 },
 	{ 0,            XK_space,         i_navigate,           +1 },
+	{ ShiftMask,    XK_space,         i_navigate,           -1 },
 	{ 0,            XK_p,             i_navigate,           -1 },
 	{ 0,            XK_BackSpace,     i_navigate,           -1 },
 	{ 0,            XK_bracketright,  i_navigate,           +10 },
@@ -145,6 +146,8 @@ static const button_t buttons[] = {
 	{ 0,            3,                g_switch_mode,        None },
 	{ 0,            4,                g_zoom,               +1 },
 	{ 0,            5,                g_zoom,               -1 },
+	{ 0,            8,                i_navigate,           +1 },
+	{ 0,            9,                i_navigate,           -1 },
 };
 
 #endif
