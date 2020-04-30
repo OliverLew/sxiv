@@ -8,6 +8,21 @@ report if something does not work as documented or expected. Contributions are
 welcome but there is no guarantee that they will be incorporated.
 
 
+About this fork
+---------------
+
+Changes in this fork:
+
+- Change mouse operations to mimic most image viewers
+  - left button in the middle area to drag
+  - left button in the left/right edge to navigate
+- Modified the next/prev click area. I made it narrower (It was a third of window width, but the remaining area is too small for dragging).
+- Directory browse script
+- Enable play animated images by default
+- Show info on the window title, disable bar by default
+- Reset zoom level when loading images
+
+
 Features
 --------
 
