@@ -77,6 +77,9 @@ install: all
 	mkdir -p $(DESTDIR)$(PREFIX)/share/sxiv/exec
 	cp exec/* $(DESTDIR)$(PREFIX)/share/sxiv/exec/
 	chmod 755 $(DESTDIR)$(PREFIX)/share/sxiv/exec/*
+	@echo "INSTALL share/applications/sxiv.desktop"
+	mkdir -p $(DESTDIR)$(PREFIX)/share/applications
+	cp sxiv.desktop $(DESTDIR)$(PREFIX)/share/applications
 
 uninstall:
 	@echo "REMOVE bin/sxiv"
