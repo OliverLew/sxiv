@@ -83,8 +83,10 @@ static const keymap_t keys[] = {
 	{ ControlMask,  XK_Right,         g_scroll_screen,      DIR_RIGHT },
 	{ 0,            XK_plus,          g_zoom,               +1 },
 	{ 0,            XK_KP_Add,        g_zoom,               +1 },
+	{ ControlMask,  XK_plus,          g_zoom,               +1 },
 	{ 0,            XK_minus,         g_zoom,               -1 },
 	{ 0,            XK_KP_Subtract,   g_zoom,               -1 },
+	{ ControlMask,  XK_minus,         g_zoom,               -1 },
 	{ 0,            XK_m,             g_toggle_image_mark,  None },
 	{ 0,            XK_M,             g_mark_range,         None },
 	{ ControlMask,  XK_m,             g_reverse_marks,      None },
@@ -114,7 +116,9 @@ static const keymap_t keys[] = {
 	{ 0,            XK_bracketleft,   i_navigate,           -10 },
 	{ ControlMask,  XK_6,             i_alternate,          None },
 	{ ControlMask,  XK_n,             i_navigate_frame,     +1 },
+	{ 0,            XK_comma,         i_navigate_frame,     +1 },
 	{ ControlMask,  XK_p,             i_navigate_frame,     -1 },
+	{ 0,            XK_period,        i_navigate_frame,     -1 },
 	{ ControlMask,  XK_space,         i_toggle_animation,   None },
 	{ 0,            XK_h,             i_scroll,             DIR_LEFT },
 	{ 0,            XK_Left,          i_scroll,             DIR_LEFT },
@@ -146,13 +150,16 @@ static const keymap_t keys[] = {
 /* mouse button mappings for image mode: */
 static const button_t buttons[] = {
 	/* modifiers    button            function              argument */
-	{ 0,            1,                i_cursor_navigate,    None },
 	{ 0,            1,                i_drag,               DRAG_RELATIVE },
 	{ 0,            3,                g_switch_mode,        None },
-	{ 0,            4,                g_zoom,               +1 },
-	{ 0,            5,                g_zoom,               -1 },
+	{ 0,            4,                i_scroll,             DIR_UP },
+	{ 0,            5,                i_scroll,             DIR_DOWN },
+	{ 0,            6,                i_scroll,             DIR_LEFT },
+	{ 0,            7,                i_scroll,             DIR_RIGHT },
 	{ 0,            8,                i_navigate,           +1 },
 	{ 0,            9,                i_navigate,           -1 },
+	{ ControlMask,  4,                g_zoom,               +1 },
+	{ ControlMask,  5,                g_zoom,               -1 },
 };
 
 #endif
