@@ -68,6 +68,9 @@ install: all
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
 	cp sxiv $(DESTDIR)$(PREFIX)/bin/
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/sxiv
+	@echo "INSTALL bin/sxiv-open"
+	cp sxiv-open $(DESTDIR)$(PREFIX)/bin/
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/sxiv-open
 	@echo "INSTALL sxiv.1"
 	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
 	sed "s!PREFIX!$(PREFIX)!g; s!VERSION!$(version)!g" sxiv.1 \
@@ -84,6 +87,8 @@ install: all
 uninstall:
 	@echo "REMOVE bin/sxiv"
 	rm -f $(DESTDIR)$(PREFIX)/bin/sxiv
+	@echo "REMOVE bin/sxiv-open"
+	rm -f $(DESTDIR)$(PREFIX)/bin/sxiv-open
 	@echo "REMOVE sxiv.1"
 	rm -f $(DESTDIR)$(MANPREFIX)/man1/sxiv.1
 	@echo "REMOVE share/sxiv/"

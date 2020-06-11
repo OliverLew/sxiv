@@ -1,0 +1,20 @@
+#!/bin/sh
+# Modified from https://github.com/ranger/ranger/blob/master/examples/rifle_sxiv.sh
+
+[ $# -eq 0 ] && exit
+
+[ "$1" = '--' ] && shift
+
+listfiles () {
+    find -L "$(dirname "$target")" -maxdepth 1 -type f -iregex \
+      '.*\(jpe?g\|bmp\|png\|gif\|tiff\|webp\)$' -print0 | sort -z
+}
+
+target="$(realpath "$1")"
+count="$(listfiles | grep -m 1 -ZznF "$target" | cut -d: -f1)"
+
+if [ -n "$count" ] && [ $# = 1 ]; then
+    listfiles | xargs -0 sxiv -n "$count" --
+else
+    sxiv -- "$@" # fallback
+fi
