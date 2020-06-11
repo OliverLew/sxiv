@@ -4,6 +4,13 @@
 [ $# -eq 0 ] && exit
 
 [ "$1" = '--' ] && shift
+if [ "${1##*.}" = "svg" ]; then
+    tempfile="/tmp/sxiv-$(basename "$1").png"
+    convert -background none "$1" "$tempfile"
+    sxiv -- "$tempfile"
+    rm "$tempfile"
+    exit
+fi
 
 listfiles () {
     find -L "$(dirname "$target")" -maxdepth 1 -type f -iregex \
